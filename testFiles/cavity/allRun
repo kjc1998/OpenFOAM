@@ -1,0 +1,15 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/CleanFunctions      # Tutorial clean functions
+#------------------------------------------------------------------------------
+
+mkdir log
+ideasUnvToFoam constant/cavity-salome.unv > log/salomeToMesh.log
+echo "done salome mesh conversion"
+
+# icoFoam > log/icoFoam.log
+# echo "icoFoam simulation done"
+
+# touch cavity.foam
+
+#------------------------------------------------------------------------------
