@@ -1,0 +1,7 @@
+cd ${0%/*} || exit 1				# Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions	# Tutorial run functions
+
+potentialFoam -writep | tee log/potentialFoam.log
+echo "potentialFoam done"
+
+icoFoam | tee log/icoFoam.log

@@ -1,0 +1,66 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include	"include/dimensions"
+
+actions
+(
+	// Newly Defined
+	{
+        name    outerCylinder;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+		sourceInfo
+		{
+			box (-1 -1 $negAxial) (1 1 $posAxial);
+		}
+    }
+	{
+        name    innerRectangle;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+		sourceInfo
+		{
+			box ($negInner $negInner $negAxial) ($posInner $posInner $posAxial);
+		}
+    }
+	
+	// Coin Mesh
+	{
+		name	coinCell;
+		type	cellSet;
+		action	new;
+		source	cellToCell;
+		sourceInfo
+		{
+			set	outerCylinder;
+		}
+	}
+	{
+		name	coinCell;
+		type	cellSet;
+		action	delete;
+		source	cellToCell;
+		sourceInfo
+		{
+			set	innerRectangle;
+		}
+	}
+);
+
+// ************************************************************************* //

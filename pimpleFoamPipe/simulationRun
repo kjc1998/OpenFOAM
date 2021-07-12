@@ -1,0 +1,12 @@
+cd ${0%/*} || exit 1
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+restore0Dir
+decomposePar -force > log/decomposeParSim.log
+
+runParallel potentialFoam -writep > log/potentialFoam.log
+echo "potentialFoam done"
+
+runParallel pimpleFoam > log/pimpleFoam.log
+
+reconstructPar > log/reconstructParSim.log

@@ -1,0 +1,134 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    {
+        name    cylinder;
+        type    faceSet;
+        action  new;
+        source  patchToFace;
+	sourceInfo
+	{
+	  patch  cylinder;
+	}
+    }
+
+    {
+    	name    bottom_patch_negative;
+	type    faceSet;
+	action  new;
+	source  boxToFace;
+	sourceInfo
+	{
+	  box (2.9 -0.6 0.01) (4.1 0.6 41.0);
+	}
+    }
+
+    {
+    	name    top_patch_negative;
+	type    faceSet;
+	action  new;
+	source  boxToFace;
+	sourceInfo
+	{
+	  box (2.9 -0.6 -1.0) (4.1 0.6 39.99);
+	} 
+    }
+
+// new bottomPatch faceSet
+    {
+	name    bottomPatch;
+	type    faceSet;
+	action  new;
+	source  faceToFace;
+	sourceInfo
+	{
+	  set   cylinder;
+	}
+    }
+
+    {
+	name    bottomPatch; // using this to apply the action
+        type    faceSet;
+        action  delete;
+        source  faceToFace;
+        sourceInfo
+        {
+          set   bottom_patch_negative;
+        }
+    }
+
+// new topPatch faceSet
+    {
+	name    topPatch;
+	type    faceSet;
+	action  new;
+	source  faceToFace;
+	sourceInfo
+	{
+	  set   cylinder;
+	}
+    }
+
+    {
+	name    topPatch;
+        type    faceSet;
+        action  delete;
+        source  faceToFace;
+        sourceInfo
+        {
+          set   top_patch_negative;
+        }
+    }
+
+// new wall faceSet
+    {
+	name    wall;
+	type    faceSet;
+	action  new;
+	source  faceToFace;
+	sourceInfo
+	{
+	  set   cylinder;
+	}
+    }
+
+    {
+	name    wall;
+        type    faceSet;
+        action  delete;
+        source  faceToFace;
+        sourceInfo
+        {
+          set   topPatch;
+        }
+    }
+
+    {
+	name    wall;
+        type    faceSet;
+        action  delete;
+        source  faceToFace;
+        sourceInfo
+        {
+          set   bottomPatch;
+        }
+    }
+);
+
+// ************************************************************************* //
