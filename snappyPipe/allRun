@@ -30,6 +30,9 @@ function foamAutoPatch {
 	autoPatch -overwrite 75 > log/autoPatch.log # overwrite existing mesh file using 75 degree as reference point
 	echo "autoPatch done"
 
+	createPatch -dict system/createPatchDict_auto -overwrite > log/createPatch.log
+	echo "createPatch (auto) done"
+
 	changeDictionary > log/changeDictionary.log
 	echo "changeDictionary done"
 }
