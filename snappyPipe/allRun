@@ -19,10 +19,10 @@ function meshing {
 }
 
 function foamTopoPatch {
-	topoSet > log/topoSet.log
+	topoSet > log/topoSet.log # create the geometry where the effects will take place
 	echo "topoSet done"
 
-	createPatch -overwrite > log/createPatch.log
+	createPatch -overwrite > log/createPatch.log # create patches to be recognised by openFOAM
 	echo "createPatch done"
 }
 
