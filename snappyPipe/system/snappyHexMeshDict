@@ -214,7 +214,7 @@ addLayersControls
     // Per final patch (so not geometry!) the layer information
     layers
     {
-        "(lowerWall|motorBike).*"
+        "wall"
         {
             nSurfaceLayers 1;
         }
