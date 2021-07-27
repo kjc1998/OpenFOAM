@@ -48,5 +48,5 @@ restore0Dir
 mkdir log
 meshing
 touch snappy_pipe.foam
-# simulationRun
+simulationRun
 
