@@ -49,9 +49,9 @@ solvers
 PIMPLE
 {
     momentumPredictor   yes;
-    nOuterCorrectors    1000;
+    nOuterCorrectors    500;
     nCorrectors     2;
-    nNonOrthogonalCorrectors 2;
+    nNonOrthogonalCorrectors 3;
 
     residualControl
 	{

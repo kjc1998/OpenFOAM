@@ -25,8 +25,8 @@ cellZone        rotatingZone;	// name of zone to be rotated
 
 solidBodyMotionFunction  rotatingMotion;
 
-origin      (21 172.3 0);			// point at which it rotates
+origin      (13 172.7195 -0.0115);			// point at which it rotates (must be super accurate!)
 axis        (1 0 0);			    // will rotate according to right-hand rule method
-omega       6283;					// 60,000 rpm
+omega       6283.185;					// 60,000 rpm
 
 // ************************************************************************* //

@@ -25,11 +25,11 @@ stopAt          endTime;
 
 endTime         1;
 
-deltaT          0.000075;
+deltaT          0.0003;
 
 writeControl    adjustable;
 
-writeInterval   0.00015;
+writeInterval   0.0003;
 
 purgeWrite      0;
 

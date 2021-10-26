@@ -24,7 +24,7 @@ patches
         patchInfo
         {
             type            cyclicAMI;
-            matchTolerance  0.0001;
+            matchTolerance  0.1;
             neighbourPatch  rotatingAMI2;
             transform       noOrdering;
         }
@@ -38,7 +38,7 @@ patches
         patchInfo
         {
             type            cyclicAMI;
-            matchTolerance  0.0001;
+            matchTolerance  0.1;
             neighbourPatch  rotatingAMI1;
             transform       noOrdering;
         }
