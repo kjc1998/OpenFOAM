@@ -49,9 +49,37 @@ solvers
 PIMPLE
 {
     momentumPredictor   yes;
-    nOuterCorrectors    3;
-    nCorrectors     1;
-    nNonOrthogonalCorrectors 0;
+    nOuterCorrectors    1000;
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 2;
+
+    residualControl
+	{
+		U
+		{
+			tolerance	1e-4;
+			relTol		0;
+		}
+		p
+		{
+			tolerance	5e-3;
+			relTol		0;
+		}
+	}
+}
+
+relaxationFactors
+{
+	fields
+	{
+		p		0.3;
+		pFinal	1;
+	}
+	equations
+	{
+		"U|k|epsilon|omega|R|nuTilda"			0.3;
+		"(U|k|epsilon|omega|R|nuTilda)Final"	1;
+	}
 }
 
 // ************************************************************************* //

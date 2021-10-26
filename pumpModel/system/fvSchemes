@@ -29,7 +29,11 @@ divSchemes
 {
     default         none;
     div(U)          Gauss linear;
-    div(phi,U)      Gauss linearUpwind grad(U);
+    div(phi,U)      Gauss CoBlended
+                        0.01                    // Co below which scheme1 is used
+                        limitedLinearV 1        // scheme1
+                        0.05                    // Co above which scheme2 is used
+                        linearUpwind grad(U);   // scheme2
     div(phi,k)      Gauss linearUpwind grad(U);
     div(phi,K)      Gauss linearUpwind grad(U);
     div(phi,omega)  Gauss linearUpwind grad(U);
