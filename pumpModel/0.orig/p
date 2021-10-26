@@ -20,22 +20,17 @@ internalField   uniform 0;
 
 boundaryField
 {
-    AMI1
+    rotatingAMI1
     {
         type            cyclicAMI;
         value           uniform 0;
     }
-    AMI2
+    rotatingAMI2
     {
         type            cyclicAMI;
         value           uniform 0;
     }
-    fan
-    {
-        type            fixedFluxPressure;
-        value           uniform 0;
-    }
-    door
+    inlet
     {
         type            fixedFluxPressure;
         value           uniform 0;
@@ -51,6 +46,11 @@ boundaryField
         value           uniform 0;
     }
     desk
+    {
+        type            fixedFluxPressure;
+        value           uniform 0;
+    }
+    fan
     {
         type            fixedFluxPressure;
         value           uniform 0;

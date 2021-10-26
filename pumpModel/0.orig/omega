@@ -24,37 +24,37 @@ boundaryField
     AMI1
     {
         type            cyclicAMI;
-        value           uniform 0.1;
+        value           $internalField;
     }
     AMI2
     {
         type            cyclicAMI;
-        value           uniform 0.1;
+        value           $internalField;
     }
-    fan
-    {
-        type            omegaWallFunction;
-        value           uniform 0.1;
-    }
-    door
+    inlet
     {
         type            turbulentMixingLengthFrequencyInlet;
         mixingLength    1.2;
-        value           uniform 0.1;
+        value           $internalField;
     }
     outlet
     {
         type            zeroGradient;
     }
-    room
+    housing
     {
         type            omegaWallFunction;
-        value           uniform 0.1;
+        value           $internalField;
     }
-    desk
+    impeller
     {
         type            omegaWallFunction;
-        value           uniform 0.1;
+        value           $internalField;
+    }
+    cover
+    {
+        type            omegaWallFunction;
+        value           $internalField;
     }
 }
 

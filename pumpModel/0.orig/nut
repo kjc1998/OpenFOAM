@@ -20,22 +20,17 @@ internalField   uniform 1e-5;
 
 boundaryField
 {
-    AMI1
+    rotatingAMI1
     {
         type            cyclicAMI;
         value           uniform 1e-5;
     }
-    AMI2
+    rotatingAMI2
     {
         type            cyclicAMI;
         value           uniform 1e-5;
     }
-    fan
-    {
-        type            nutkWallFunction;
-        value           uniform 1e-5;
-    }
-    door
+    inlet
     {
         type            zeroGradient;
     }
@@ -43,12 +38,17 @@ boundaryField
     {
         type            zeroGradient;
     }
-    room
+    housing
     {
         type            nutkWallFunction;
         value           uniform 1e-5;
     }
-    desk
+    impeller
+    {
+        type            nutkWallFunction;
+        value           uniform 1e-5;
+    }
+    cover
     {
         type            nutkWallFunction;
         value           uniform 1e-5;

@@ -21,36 +21,35 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
-    AMI1
+    rotatingAMI1
     {
         type            cyclicAMI;
         value           uniform (0 0 0);
     }
-    AMI2
+    rotatingAMI2
     {
         type            cyclicAMI;
         value           uniform (0 0 0);
     }
-    fan
+    inlet
+    {
+        type            fixedValue;
+        value           uniform (0.1 0 0);
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+    housing
+    {
+        type            noSlip;
+    }
+    impeller
     {
         type            movingWallVelocity;
         value           uniform (0 0 0);
     }
-    door
-    {
-        type            fixedValue;
-        value           uniform (-0.1 0 0);
-    }
-    outlet
-    {
-        type            pressureInletOutletVelocity;
-        value           uniform (0 0 0);
-    }
-    room
-    {
-        type            noSlip;
-    }
-    desk
+    cover
     {
         type            noSlip;
     }

@@ -17,44 +17,44 @@ FoamFile
 
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 0.00341;
+internalField   uniform 3.85e-5;
 
 boundaryField
 {
-    AMI1
+    rotatingAMI1
     {
         type            cyclicAMI;
-        value           uniform 0.00341;
+        value           $internalField;
     }
-    AMI2
+    rotatingAMI2
     {
         type            cyclicAMI;
-        value           uniform 0.00341;
+        value           $internalField;
     }
-    fan
-    {
-        type            kqRWallFunction;
-        value           uniform 0.00341;
-    }
-    door
+    inlet
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity       0.05;
-        value           uniform 0.00341;
+        intensity	    0.05; // 5% turbulence
+        value		    $internalField;
     }
     outlet
     {
         type            zeroGradient;
     }
-    room
+    housing
     {
         type            kqRWallFunction;
-        value           uniform 0.00341;
+        value           $internalField;
     }
-    desk
+    impeller
     {
         type            kqRWallFunction;
-        value           uniform 0.00341;
+        value           $internalField;
+    }
+    cover
+    {
+        type            kqRWallFunction;
+        value           $internalField;
     }
 }
 
