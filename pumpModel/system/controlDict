@@ -27,9 +27,9 @@ endTime         1;
 
 deltaT          0.0005;
 
-writeControl    adjustable;
+writeControl    timeStep;
 
-writeInterval   0.001;
+writeInterval   2;
 
 purgeWrite      0;
 
@@ -43,10 +43,7 @@ timeFormat      general;
 
 timePrecision   6;
 
-runTimeModifiable false;
+runTimeModifiable true;
 
 maxCo           10;
-
-maxDeltaT       1;
-
 // ************************************************************************* //
