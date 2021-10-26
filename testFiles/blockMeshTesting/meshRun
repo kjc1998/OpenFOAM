@@ -1,0 +1,20 @@
+cd ${0%/*} || exit 1				# Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions	# Tutorial run functions
+
+restore0Dir
+mkdir log
+
+blockMesh | tee log/blockMesh.log
+echo "blockMesh done"
+
+topoSet | tee log/topoSet.log
+echo "topoSet done"
+
+subsetMesh -overwrite -patch innerWall coinCell | tee log/subsetMesh.log
+echo "subsetMesh done"
+
+changeDictionary -constant -dict system/changeDictionaryDictBoundary | tee log/changeBoundary.log
+changeDictionary -dict system/changeDictionaryDict0 | tee log/change0.log
+echo "changeDictionaryDone"
+
+touch coinFlow.foam

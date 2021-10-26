@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale   1;
+
+// mesh domain settings
+min_x	1; // to get mesh within body
+max_x	105;
+
+min_y	15;
+max_y	322; // to get mesh within body
+
+min_z	-140;
+max_z	175;
+
+
+vertices
+(
+    ($min_x $min_y $min_z)	// 0
+    ($max_x $min_y $min_z) 	// 1
+    ($max_x $max_y $min_z)	// 2
+    ($min_x $max_y $min_z)	// 3
+	
+    ($min_x $min_y $max_z)	// 4
+    ($max_x $min_y $max_z) 	// 5
+    ($max_x $max_y $max_z)	// 6
+    ($min_x $max_y $max_z)	// 7
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (50 150 150) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+	outlet
+    {
+        type patch;
+        faces
+        (
+            (3 7 6 2)
+        );
+    }
+);
+
+// ************************************************************************* //

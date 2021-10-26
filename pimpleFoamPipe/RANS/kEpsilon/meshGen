@@ -1,0 +1,25 @@
+cd ${0%/*} || exit 1				# Run from this directory
+. $WM_PROJECT_DIR/bin/tools/RunFunctions	# Tutorial run functions
+
+mkdir log
+blockMesh > log/blockMesh.log
+echo "blockMesh done"
+
+// parallel decomposition
+decomposePar > log/decomposePar.log
+
+restore0Dir -processor
+
+runParallel snappyHexMesh -overwrite > log/snappyHexMesh.log
+echo "snappyHexMesh done"
+
+runParallel topoSet > log/topoSet.log
+echo "topoSet done"
+
+runParallel createPatch -overwrite > log/createPatch.log
+echo "createPatch done"
+
+// parallel reconstruction
+reconstructParMesh -constant -mergeTol 1E-06 > log/reconstructParMesh.log
+
+touch pipeKEpsilon.foam

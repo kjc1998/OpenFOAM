@@ -1,0 +1,16 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+restore0Dir
+runApplication blockMesh
+
+# application run potentialFoam such as that given in controlDict
+# withFunctionObjects run "function" in controlDict
+runApplication $(getApplication) -writePhi -writep
+
+# runApplication postProcess -func streamFunction
+touch cylinderPotential.foam
+
+#------------------------------------------------------------------------------

@@ -1,0 +1,18 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+#include				"../U"
+
+xFlowVelocity         	50.5;
+turbulenceIntensity		0.01;
+kBoundaryValue			#calc	"1.5*pow($turbulenceIntensity*$xFlowVelocity, 2)";
+
+mixingLength			#calc	"0.07*2.5";
+epsilonBoundaryValue	#calc	"pow(0.09, 3/4)*pow($kBoundaryValue, 1.5)/$mixingLength";
+
+// ************************************************************************* //

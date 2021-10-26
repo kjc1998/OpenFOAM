@@ -1,0 +1,16 @@
+Mesh Generation:
+
+1) stl format files (Save ASCII, change default coordinates, Need commands to change from default .STL to .stl)
+2) Define and interpolate "rotating mesh" and "stationary mesh" (Need another stl for rotating mesh operation)
+3) surfaceFeatureExtract to handle edge meshes
+4) snappyHexMesh to define all meshes
+5) renumberMesh to improve efficiency
+6) createPatch for patch handling
+
+Commands{
+surfaceFeatureExtract
+blockMesh
+snappyHexMesh -overwrite (1 hour max)
+renumberMesh
+createPatch to convert over to cyclicAMI
+}

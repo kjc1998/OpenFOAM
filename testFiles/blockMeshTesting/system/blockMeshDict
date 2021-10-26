@@ -1,0 +1,87 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include	"include/dimensions"
+
+scale   	1;
+
+vertices
+(
+	// Outer cylinder
+    ($negR $negR $negAxial)
+    ($posR $negR $negAxial)
+    ($posR $posR $negAxial)
+    ($negR $posR $negAxial)
+    ($negR $negR $posAxial)
+    ($posR $negR $posAxial)
+    ($posR $posR $posAxial)
+    ($negR $posR $posAxial)
+
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (50 50 75) simpleGrading (1 1 1)
+);
+
+edges
+(
+	arc 0 1 (0 -1 $negAxial)
+	arc 1 2 (1 0 $negAxial)
+	arc 2 3 (0 1 $negAxial)
+	arc 3 0 (-1 0 $negAxial)
+	
+	arc 4 5 (0 -1 $posAxial)
+	arc 5 6 (1 0 $posAxial)
+	arc 6 7 (0 1 $posAxial)
+	arc 7 4 (-1 0 $posAxial)
+);
+
+boundary
+(
+    outerWall
+    {
+        type wall;
+        faces
+        (
+            (0 1 5 4)
+			(1 2 6 5)
+			(2 3 7 6)
+			(3 0 4 7)
+        );
+    }
+	frontPatch
+	{
+		type patch;
+		faces
+		(
+			(0 3 2 1)
+		);
+	}
+	backPatch
+	{
+		type patch;
+		faces
+		(
+			(4 5 6 7)
+		);
+	}
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //
