@@ -21,12 +21,12 @@ motionSolverLibs (fvMotionSolvers);
 
 motionSolver    solidBody;
 
-cellZone        rotatingZone;
+cellZone        rotatingZone;	// name of zone to be rotated
 
 solidBodyMotionFunction  rotatingMotion;
 
-origin      (-3 2 2.6);
-axis        (0 0 1);
-omega       10;
+origin      (21 172.3 0);			// point at which it rotates
+axis        (1 0 0);			// will rotate according to right-hand rule method
+omega       10;					// rad/s
 
 // ************************************************************************* //
