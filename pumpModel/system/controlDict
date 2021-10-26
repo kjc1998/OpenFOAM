@@ -25,29 +25,27 @@ stopAt          endTime;
 
 endTime         1;
 
-deltaT          0.0003;
+deltaT          0.0005;
 
 writeControl    adjustable;
 
-writeInterval   0.0009;
+writeInterval   0.001;
 
 purgeWrite      0;
 
 writeFormat     ascii;
 
-writePrecision  7;
+writePrecision  6;
 
-writeCompression no;
+writeCompression off;
 
 timeFormat      general;
 
 timePrecision   6;
 
-runTimeModifiable yes;
+runTimeModifiable false;
 
-adjustTimeStep  yes;
-
-maxCo           5;
+maxCo           10;
 
 maxDeltaT       1;
 
