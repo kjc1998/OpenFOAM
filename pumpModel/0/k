@@ -10,51 +10,53 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    object      p;
+    location    "0";
+    object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 dimensions      [0 2 -2 0 0 0 0];
 
-internalField   uniform 0;
+internalField   uniform 3.85e-5;
 
 boundaryField
 {
     rotatingAMI1
     {
         type            cyclicAMI;
-        value           uniform 0;
+        value           $internalField;
     }
     rotatingAMI2
     {
         type            cyclicAMI;
-        value           uniform 0;
+        value           $internalField;
     }
     inlet
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            turbulentIntensityKineticEnergyInlet;
+        intensity	    0.05; // 5% turbulence
+        value		    $internalField;
     }
     outlet
     {
-        type            fixedValue;
-        value           uniform 0;
+        type            zeroGradient;
     }
     housing
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            kqRWallFunction;
+        value           $internalField;
     }
     impeller
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            kqRWallFunction;
+        value           $internalField;
     }
     cover
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            kqRWallFunction;
+        value           $internalField;
     }
 }
+
 
 // ************************************************************************* //

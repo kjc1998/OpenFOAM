@@ -10,50 +10,48 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    object      p;
+    object      nut;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+dimensions      [0 2 -1 0 0 0 0];
 
-internalField   uniform 0;
+internalField   uniform 1e-5;
 
 boundaryField
 {
     rotatingAMI1
     {
         type            cyclicAMI;
-        value           uniform 0;
+        value           uniform 1e-5;
     }
     rotatingAMI2
     {
         type            cyclicAMI;
-        value           uniform 0;
+        value           uniform 1e-5;
     }
     inlet
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            zeroGradient;
     }
     outlet
     {
-        type            fixedValue;
-        value           uniform 0;
+        type            zeroGradient;
     }
     housing
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            nutkWallFunction;
+        value           uniform 1e-5;
     }
     impeller
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            nutkWallFunction;
+        value           uniform 1e-5;
     }
     cover
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            nutkWallFunction;
+        value           uniform 1e-5;
     }
 }
 
