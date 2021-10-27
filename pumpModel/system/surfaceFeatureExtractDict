@@ -17,22 +17,22 @@ FoamFile
 rotatingAMI.stl
 {
     extractionMethod    extractFromSurface;
-    includedAngle       150;
+    includedAngle       180;
 }
 impeller.stl
 {
     extractionMethod    extractFromSurface;
-    includedAngle       150;
+    includedAngle       180;
 }
 housing.stl
 {
     extractionMethod    extractFromSurface;
-    includedAngle       150;
+    includedAngle       180;
 }
 cover.stl
 {
     extractionMethod    extractFromSurface;
-    includedAngle       150;
+    includedAngle       180;
 }
 
 // ************************************************************************* //

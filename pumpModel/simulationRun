@@ -3,4 +3,4 @@ cd ${0%/*} || exit 1
 
 restore0Dir
 
-// pimpleFoam | tee log/pimpleFoam.log
+pimpleFoam | tee log/pimpleFoam.log

@@ -16,7 +16,7 @@ FoamFile
 
 castellatedMesh true;
 snap            true;
-addLayers       false;
+addLayers       false; // for boundary layer purpose
 
 geometry
 {
@@ -29,7 +29,7 @@ geometry
 castellatedMeshControls
 {
     maxLocalCells 100000;
-    maxGlobalCells 8000000;
+    maxGlobalCells 10000000;
     minRefinementCells 0;
     maxLoadUnbalance 0.10;
     nCellsBetweenLevels 2;
@@ -38,47 +38,53 @@ castellatedMeshControls
     (
         { file "cover.eMesh"; level 0;} 
         { file "housing.eMesh"; level 0;}
-        { file "impeller.eMesh"; level 3;}	// Note: better: level 3
-        { file "rotatingAMI.eMesh"; level 3;}	// Note: better: level 3
+        { file "impeller.eMesh"; level 2;}
+        { file "rotatingAMI.eMesh"; level 2;}
     );
 
+    // default to patch wall when patch info is not given
     refinementSurfaces
     {
         rotatingAMI
         {
-            level (3 3); // Note: better: levels 3 3
+            level (2 4);
             faceType boundary;
-            cellZone rotatingZone; // name of cell zone (for dynamic mesh)
-            faceZone rotatingZone; // name of face zone (for dynamic mesh)
+            cellZone rotatingZone;	// name of cell zone (for dynamic mesh)
+            faceZone rotatingZone;	// name of face zone (for dynamic mesh)
             cellZoneInside inside;
         }
-        impeller{ level (3 3);} // Note: better: levels 3 3
-        housing{ level (0 0);}
+        impeller{ level (3 3);}		// more emphasis on curvature (need to work on boundary layer after)
+        housing{ level (1 3);}
         cover{ level (0 0);}
     }
 
-    resolveFeatureAngle 30;
+    resolveFeatureAngle 30; // higher adjacent angle will be marked for refinement
 
     refinementRegions
     {
-        // Note: for better mesh quality utilize this refinement region
-        // AMI{ mode inside; levels ((1E15 3));}
-    }
+        // better mesh quality for whole body refinement
+        rotatingAMI
+        {
+            mode inside;
+            levels ((1E15 2));
+        }
+	
+   }
 
-    locationInMesh (2 173 0); // within the model
+    locationInMesh (2 173 0);
     allowFreeStandingZoneFaces false;
 }
 
 snapControls
 {
     nSmoothPatch 3;
-    tolerance 4.0;
-    nSolveIter 300;
+    tolerance 4.0;	// maximum relative distance for shifting
+    nSolveIter 300; // edge snapping iteration
     nRelaxIter 5;
     nFeatureSnapIter 10;
-    implicitFeatureSnap true;
-    explicitFeatureSnap false;
-    multiRegionFeatureSnap true;
+    implicitFeatureSnap true; // dependent on resolve angle
+    explicitFeatureSnap false;  // default (using extracted feature edges)
+    multiRegionFeatureSnap false; // detect features between surfaces
 }
 
 addLayersControls
@@ -111,8 +117,8 @@ meshQualityControls
     maxBoundarySkewness 20;
     maxInternalSkewness 4;
     maxConcave 80;
-    minVol 1e-13;
-    minTetQuality -1;
+    minVol 1e-13;		// no negative volume
+    minTetQuality -1;	// not checking tet mesh quality
     minArea -1;
     minTwist 0.01;
     minDeterminant 0.001;
