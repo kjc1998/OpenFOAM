@@ -11,4 +11,6 @@ OpenFOAM Projects
   - LES pimpleFoam for kOmegaSSTIDDES, Smagorinsky
 - Karman Vortex (snappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]
 - rotatingFanInRoom (referece model for pumpModel)
-- pumpModel (solidworks CAD design -> snappyHexMesh -> AMI mesh settings -> kOMegaSST RANS modelling)
+- pumpModel (
+	solidworks CAD design -> snappyHexMesh (troubles with good coupled setting) -> AMI mesh settings -> kOMegaSST RANS modelling
+  )
