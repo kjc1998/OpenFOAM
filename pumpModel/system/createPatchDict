@@ -24,9 +24,10 @@ patches
         patchInfo
         {
             type            cyclicAMI;
-            matchTolerance  0.0001;
+            matchTolerance  0.01;
             neighbourPatch  rotatingAMI2;
             transform       noOrdering;
+	    lowWeightCorrection 0.05;	// switch to zero gradient for low weight
         }
         constructFrom patches;
         patches (rotatingAMI);
@@ -38,9 +39,10 @@ patches
         patchInfo
         {
             type            cyclicAMI;
-            matchTolerance  0.0001;
+            matchTolerance  0.01;
             neighbourPatch  rotatingAMI1;
             transform       noOrdering;
+			lowWeightCorrection	0.05;
         }
         constructFrom patches;
         patches (rotatingAMI_slave);
