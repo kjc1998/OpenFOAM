@@ -20,49 +20,48 @@ solvers
     "(p|pcorr)"
     {
         solver          GAMG;
-        smoother        DICGaussSeidel;
-        tolerance       1e-06;
+        smoother        GaussSeidel;
+        tolerance       1e-05;
         relTol          0.01;
     }
     "(p|pcorr)Final"
     {
         $p;
-        tolerance       1e-06;
+        tolerance       1e-05;
         relTol          0;
     }
+	
     "(U|k|omega)"
     {
         solver          smoothSolver;
         smoother        symGaussSeidel;
-        tolerance       1e-06;
+        tolerance       1e-05;
         relTol          0.01;
     }
     "(U|k|omega)Final"
     {
         $U;
-        tolerance       1e-06;
         relTol          0;
-    }
+    }	
 }
 
 
 PIMPLE
 {
-    
-    nOuterCorrectors	3;
-    nCorrectors    	 2;
-    nNonOrthogonalCorrectors 2;
+    nOuterCorrectors	2;
+    nCorrectors			3;
+    nNonOrthogonalCorrectors 1;	
 	
 	residualControl
 	{
 		U
 		{
-			tolerance	1e-3;
+			tolerance	1e-4;
 			relTol		0;
 		}
 		p
 		{
-			tolerance	5e-2;
+			tolerance	5e-3;
 			relTol		0;
 		}
 	}
