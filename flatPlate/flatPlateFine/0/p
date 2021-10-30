@@ -37,7 +37,8 @@ boundaryField
 
     rightSide
     {
-        type            zeroGradient;
+        type            fixedValue;
+	value		$internalField;
     }	
 
     frontAndBack
