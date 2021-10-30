@@ -2,5 +2,10 @@ cd ${0%/*} || exit 1
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
 restore0Dir
+# rhoPimpleFoam | tee log/rhoPimpleFoam.log
+# pimpleFoam | tee log/pimpleFoam.log
 
-pimpleFoam | tee log/pimpleFoam.log
+### Parallel ###
+decomposePar
+mpirun -np 4 pimpleFoam -parallel | tee log/pimpleFoam.log
+reconstructPar

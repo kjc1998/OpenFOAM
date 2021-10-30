@@ -27,6 +27,6 @@ solidBodyMotionFunction  rotatingMotion;
 
 origin      (13 172.7195 -0.0115);			// point at which it rotates (must be super accurate!)
 axis        (1 0 0);			    // will rotate according to right-hand rule method
-omega       6283.185;					// 60,000 rpm
+omega       -50;					
 
 // ************************************************************************* //

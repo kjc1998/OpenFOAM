@@ -8,9 +8,15 @@ Mesh Generation:
 6) createPatch for patch handling
 
 Commands{
-surfaceFeatureExtract
-blockMesh
-snappyHexMesh -overwrite (1 hour max)
-renumberMesh
-createPatch to convert over to cyclicAMI
+	surfaceFeatureExtract
+	blockMesh
+	snappyHexMesh -overwrite (1 hour max)
+	renumberMesh (can be added to optimise process)
+	createPatch to convert over to cyclicAMI (Need make sure to add lowWeightCorrection for more robust simulation)
 }
+
+Simulation:
+
+1) decomposePar
+2) mpirun -np 4 pimpleFoam -parallel (investigate rhoPimpleFoam)
+3) reconstructPar

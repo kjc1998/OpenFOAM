@@ -17,7 +17,7 @@ FoamFile
 
 dimensions      [0 0 -1 0 0 0 0];
 
-internalField   uniform 0.1;
+internalField   uniform 2.6;
 
 boundaryField
 {
@@ -34,7 +34,7 @@ boundaryField
     inlet
     {
         type            turbulentMixingLengthFrequencyInlet;
-        mixingLength    1.2;
+        mixingLength    0.015;
         value           $internalField;
     }
     outlet
@@ -44,7 +44,7 @@ boundaryField
     housing
     {
         type            omegaWallFunction;
-        value           $internalField;
+		value			$internalField;
     }
     impeller
     {
