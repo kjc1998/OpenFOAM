@@ -12,5 +12,5 @@ OpenFOAM Projects
 - Karman Vortex (snappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]
 - rotatingFanInRoom (referece model for pumpModel)
 - pumpModel (
-	solidworks CAD design -> snappyHexMesh (troubles with good coupled setting) -> AMI mesh settings -> kOMegaSST RANS modelling
+	solidworks CAD design -> snappyHexMesh -> AMI mesh settings (lowWeightCorrection factor included) -> kOMegaSST RANS modelling
   )
