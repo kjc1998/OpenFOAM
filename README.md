@@ -1,4 +1,4 @@
-OpenFOAM Projects
+OpenFOAM Projects:
 
 - flatPlate (Flat plate simulations)
 - Karman Vortex (SnappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]
@@ -9,6 +9,7 @@ OpenFOAM Projects
 - pumpModel (Solidworks CAD design -> snappyHexMesh -> AMI mesh settings (lowWeightCorrection factor included) -> kOMegaSST RANS modelling)
 - snappyPipe (Laminar pipeflow with snappyHexMesh)
 - testFiles (Meshing testing folder)
+
 
 Reference Folders:
 
