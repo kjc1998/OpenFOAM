@@ -1,16 +1,18 @@
-# OpenFOAM
-
 OpenFOAM Projects
 
-- Corner Flow (Turbulent -> Steady State)
-- Block Mesh Test Folder
-- Flat Plate
-- Cylinder (Laminar)
-- Cylinder (Turbulent, additional option for parallel run)
+- flatPlate (Flat plate simulations)
+- Karman Vortex (SnappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]
+- pimpleFoamPipe (Turbulent cylinder, additional option for parallel run)
   - RANS pimpleFoam for kEpsilon, kOmegaSST, spalartAllmaras
   - LES pimpleFoam for kOmegaSSTIDDES, Smagorinsky
-- Karman Vortex (snappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]
-- rotatingFanInRoom (referece model for pumpModel)
-- pumpModel (
-	solidworks CAD design -> snappyHexMesh -> AMI mesh settings (lowWeightCorrection factor included) -> kOMegaSST RANS modelling
-  )
+- pisoFoamPipe (Turbulent pipe flow with pisoFoam solver)
+- pumpModel (Solidworks CAD design -> snappyHexMesh -> AMI mesh settings (lowWeightCorrection factor included) -> kOMegaSST RANS modelling)
+- snappyPipe (Laminar pipeflow with snappyHexMesh)
+- testFiles (Meshing testing folder)
+
+Reference Folders:
+
+- cornerFlow (Turbulent solver under steady state)
+- cylinderPotential (PotentialFoam setups)
+- plateHole (Tutorial folder)
+- rotatingFanInRoom (Referece model for pumpModel)
