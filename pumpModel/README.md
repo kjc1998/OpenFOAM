@@ -25,7 +25,7 @@ _Toy Model consisting of impeller, housing and cover with details stated in the 
   </tr>
   <tr>
     <td>130 x 130 x 65 (mm3)</td>
-    <td>306.85 x 303.93 x 90.01 (mm3)</td>
+    <td>90.01 x 303.93 x 306.85 (mm3)</td>
     <td>140 x 140 x 45 (mm3)</td>
   </tr>
   <tr>
