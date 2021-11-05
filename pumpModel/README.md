@@ -123,9 +123,9 @@ _Key Settings_
                             limitedLinearV 1
                             0.05
                             linearUpwind grad(U);
-          div(phi,k)      Gauss linearUpwind grad(U);
-          div(phi,K)      Gauss linearUpwind grad(U);
-          div(phi,omega)  Gauss linearUpwind grad(U);
+          div(phi,k)        Gauss linearUpwind grad(U);
+          div(phi,K)        Gauss linearUpwind grad(U);
+          div(phi,omega)    Gauss linearUpwind grad(U);
           div((nuEff*dev2(T(grad(U))))) Gauss linear;
         }
         ...
@@ -144,8 +144,8 @@ _Key Settings_
         inlet
         {
             type            turbulentIntensityKineticEnergyInlet;
-            intensity	      0.05;           // 5% turbulence
-            value		        uniform 0.00325;
+            intensity       0.05;           // 5% turbulence
+            value           uniform 0.00325;
         }
       ...
 
@@ -163,5 +163,5 @@ _Key Settings_
 ## Animation
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57020975/140513868-621f4a91-43aa-45dc-9924-0a0d6363d778.gif" height=500>
+  <img src="https://user-images.githubusercontent.com/57020975/140513868-621f4a91-43aa-45dc-9924-0a0d6363d778.gif" height=400>
 </p>
