@@ -6,8 +6,7 @@ OpenFOAM Projects:
   - RANS pimpleFoam for kEpsilon, kOmegaSST, spalartAllmaras
   - LES pimpleFoam for kOmegaSSTIDDES, Smagorinsky
 - pisoFoamPipe (Turbulent pipe flow with pisoFoam solver)
-- [pumpModel](https://github.com/kjc1998/OpenFOAM/tree/master/pumpModel)
-  (Solidworks CAD design -> snappyHexMesh -> AMI mesh settings (lowWeightCorrection factor included) -> kOMegaSST RANS modelling)
+- pumpModel ([Details](https://github.com/kjc1998/OpenFOAM/tree/master/pumpModel))
 - snappyPipe (Laminar pipeflow with snappyHexMesh)
 - testFiles (Meshing testing folder)
 
