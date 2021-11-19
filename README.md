@@ -10,10 +10,10 @@ OpenFOAM Projects:
 - snappyPipe (Laminar pipeflow with snappyHexMesh)
 - testFiles (Meshing testing folder)
 
-
 Reference Folders:
 
 - cornerFlow (Turbulent solver under steady state)
 - cylinderPotential (PotentialFoam setups)
 - plateHole (Tutorial folder)
 - rotatingFanInRoom (Referece model for pumpModel)
+- FSI (Fluid Structure Interaction for Future Wind Turbine project)
