@@ -16,4 +16,4 @@ Reference Folders:
 - cylinderPotential (PotentialFoam setups)
 - plateHole (Tutorial folder)
 - rotatingFanInRoom (Referece model for pumpModel)
-- FSI (Fluid Structure Interaction for Future Wind Turbine project)
+- FSI (Fluid Structure Interaction for Wind Turbine project)
