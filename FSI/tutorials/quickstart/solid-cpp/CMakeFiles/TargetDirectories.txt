@@ -1,0 +1,3 @@
+/mnt/e/openFOAM/projects/FSI/tutorials/quickstart/solid-cpp/CMakeFiles/edit_cache.dir
+/mnt/e/openFOAM/projects/FSI/tutorials/quickstart/solid-cpp/CMakeFiles/rebuild_cache.dir
+/mnt/e/openFOAM/projects/FSI/tutorials/quickstart/solid-cpp/CMakeFiles/rigid_body_solver.dir

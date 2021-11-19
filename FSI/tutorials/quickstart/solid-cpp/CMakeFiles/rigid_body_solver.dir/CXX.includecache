@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/e/openFOAM/projects/FSI/tutorials/quickstart/solid-cpp/rigid_body_solver.cpp
+cmath
+-
+iostream
+-
+precice/SolverInterface.hpp
+-
+string
+-
+
