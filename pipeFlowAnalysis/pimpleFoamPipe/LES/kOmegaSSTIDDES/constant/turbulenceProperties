@@ -1,0 +1,40 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      turbulenceProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+simulationType	LES;
+
+LES
+{
+	LESModel	kOmegaSSTIDDES;
+
+	turbulence	on;
+
+	printCoeffs	on;
+
+	// can add more constants here
+	delta		IDDESDelta;
+	IDDESDeltaCoeffs
+	{
+		hmax		maxDeltaxyzCubeRoot;
+		maxDeltaxyzCubeRootCoeffs
+		{
+		}
+	}
+}
+
+
+// ************************************************************************* //
