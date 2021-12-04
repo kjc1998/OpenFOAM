@@ -1,4 +1,4 @@
-OpenFOAM Projects:
+OpenFOAM Projects (Prefix "p\_"):
 
 - flatPlate (Flat plate simulations)
 - Karman Vortex (SnappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]
@@ -12,7 +12,7 @@ OpenFOAM Projects:
 - testFiles (Meshing testing folder)
 - windTurbine (wind turbine simulation coupled with FSI WIP)
 
-Reference Folders:
+Reference Folders (Prefix: "r\_"):
 
 - cornerFlow (Turbulent solver under steady state)
 - cylinderPotential (PotentialFoam setups)
