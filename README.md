@@ -10,6 +10,7 @@ OpenFOAM Projects:
   - snappyPipe (Laminar pipeflow with snappyHexMesh)
 - pumpModel ([Details](https://github.com/kjc1998/OpenFOAM/tree/master/pumpModel))
 - testFiles (Meshing testing folder)
+- windTurbine (wind turbine simulation coupled with FSI WIP)
 
 Reference Folders:
 
