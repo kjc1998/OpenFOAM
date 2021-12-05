@@ -1,21 +1,34 @@
-OpenFOAM Projects (Prefix "p\_"):
+## OpenFOAM Projects (Prefix "p\_"):
 
-- flatPlate (Flat plate simulations)
-- Karman Vortex (SnappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]
-- pipeFlowAnalysis
-  - pimpleFoamPipe (Turbulent cylinder, additional option for parallel run)
+<ul>
+  <li>flatPlate (Flat plate simulations)</li>
+  <li>karmanVortex (SnappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]</li>
+  <li>pipeFlowAnalysis</li>
+  <li>
+  pimpleFoamPipe (Turbulent cylinder, additional option for parallel run)
+
     - RANS pimpleFoam for kEpsilon, kOmegaSST, spalartAllmaras
     - LES pimpleFoam for kOmegaSSTIDDES, Smagorinsky
-  - pisoFoamPipe (Turbulent pipe flow with pisoFoam solver)
-  - snappyPipe (Laminar pipeflow with snappyHexMesh)
-- pumpModel ([Details](https://github.com/kjc1998/OpenFOAM/tree/master/pumpModel))
-- testFiles (Meshing testing folder)
-- windTurbine (wind turbine simulation coupled with FSI WIP)
 
-Reference Folders (Prefix: "r\_"):
+  </li>
+  <li>pisoFoamPipe (Turbulent pipe flow with pisoFoam solver)</li>
+  <li>snappyPipe (Laminar pipeflow with snappyHexMesh)</li>
+  <li>pumpModel ([Details](https://github.com/kjc1998/OpenFOAM/tree/master/pumpModel))</li>
+  <li>testFiles (Meshing testing folder)</li>
+  <li>windTurbine (wind turbine simulation coupled with FSI WIP)</li>
+</ul>
 
-- cornerFlow (Turbulent solver under steady state)
-- cylinderPotential (PotentialFoam setups)
-- plateHole (Tutorial folder)
-- rotatingFanInRoom (Referece model for pumpModel)
-- FSI (Fluid Structure Interaction for Wind Turbine project)
+## Reference Folders (Prefix: "r\_"):
+
+<ul>
+  <li>cornerFlow (Turbulent solver under steady state)</li>
+  <li>cylinderPotential (PotentialFoam setups)</li>
+  <li>plateHole (Tutorial folder)</li>
+  <li>rotatingFanInRoom (Referece model for pumpModel)</li>
+</ul>
+
+## Others:
+
+<ul>
+  <li>FSI (Fluid Structure Interaction tutorials)</li>
+</ul>
