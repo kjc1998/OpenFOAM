@@ -14,6 +14,7 @@
   <li>pisoFoamPipe (Turbulent pipe flow with pisoFoam solver)</li>
   <li>snappyPipe (Laminar pipeflow with snappyHexMesh)</li>
   <li>pumpModel ([Details](https://github.com/kjc1998/OpenFOAM/tree/master/pumpModel))</li>
+  <li>sBendPipe (RANS and LES simulation of S Bend Pipe Setups [results validation WIP])</li>
   <li>testFiles (Meshing testing folder)</li>
   <li>windTurbine (wind turbine simulation coupled with FSI WIP)</li>
 </ul>
