@@ -8,6 +8,9 @@ surfaceFeatureExtract | tee log/surfaceFeatureExtract.log
 blockMesh | tee log/blockMesh.log
 snappyHexMesh -overwrite | tee log/snappyHexMesh.log
 polyDualMesh 75 -overwrite | tee log/polyDualMesh.log
+
+# converting back to mm unit scale
+transformPoints -scale "(0.001 0.001 0.001)"
 renumberMesh -overwrite | tee log/renumberMesh.log
 
 touch sBendPipe.foam

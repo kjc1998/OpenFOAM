@@ -15,4 +15,4 @@ seriesRun()
 	pimpleFoam | tee log/pimpleFoam.log
 }
 
-parallelRun
+seriesRun
