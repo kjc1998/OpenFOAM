@@ -1,0 +1,17 @@
+cd ${0%/*} || exit 1
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+restore0Dir
+
+parallelRun()
+{
+	decomposePar
+	mpirun -np 2 pimpleFoam -parallel | tee log/pimpleFoam.log
+	reconstructPar
+}
+seriesRun()
+{
+	pimpleFoam | tee log/pimpleFoam.log
+}
+
+seriesRun

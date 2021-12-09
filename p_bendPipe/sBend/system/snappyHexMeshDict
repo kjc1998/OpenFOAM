@@ -1,0 +1,147 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+castellatedMesh true;
+snap            true;
+addLayers       true;
+
+geometry
+{
+    inlet.obj{ type triSurfaceMesh; name inlet;}
+    outlet.obj{ type triSurfaceMesh; name outlet;}
+    wall.obj{ type triSurfaceMesh; name wall;}
+}
+
+castellatedMeshControls
+{
+    maxLocalCells 100000;
+    maxGlobalCells 2000000;
+    minRefinementCells 0;
+    maxLoadUnbalance 0.10;
+    nCellsBetweenLevels 1;
+
+
+    resolveFeatureAngle 45;
+    locationInMesh (0 5 0);
+    allowFreeStandingZoneFaces false;
+
+    features
+    (
+        { file "inlet.eMesh"; level 3;} 
+        { file "outlet.eMesh"; level 3;}
+        { file "wall.eMesh"; level 3;}
+    );
+
+    refinementSurfaces
+    {
+        inlet
+	{
+	    level (1 3);
+	    patchInfo
+	    {
+		type patch;
+	    }
+	}	
+        outlet
+	{
+	    level (1 3);
+	    patchInfo
+	    {
+		type patch;
+	    }
+	}
+        wall
+	{
+	    level (3 3);
+	    patchInfo
+	    {
+		type wall;
+	    }
+	}
+    }
+
+    refinementRegions
+    {
+    }
+}
+
+snapControls
+{
+    nSmoothPatch 3;
+    tolerance 2.0;	// maximum relative distance for shifting
+    nSolveIter 10; // edge snapping iteration
+    nRelaxIter 5;
+    nFeatureSnapIter 5;
+
+    implicitFeatureSnap false; // dependent on resolve angle
+    explicitFeatureSnap true;  // default (using extracted feature edges)
+    multiRegionFeatureSnap false; // detect features between surfaces
+}
+
+addLayersControls
+{
+    relativeSizes true;
+
+    layers
+    {
+	    wall
+	    {
+		    nSurfaceLayers 5;
+	    }
+    }
+
+    expansionRatio 1.2;
+    finalLayerThickness 1.0;
+    minThickness 0.1;
+    // Advanced Settings
+    nGrow 0;
+    featureAngle 180;
+    nRelaxIter 3;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals 3;
+    nSmoothThickness 10;
+    maxFaceThicknessRatio 1.0;
+    maxThicknessToMedialRatio 0.5;
+    minMedialAxisAngle 90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter 10;
+}
+
+meshQualityControls
+{
+    maxNonOrtho 65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave 80;
+    minVol 1e-13;		// no negative volume
+    minTetQuality -1;	// not checking tet mesh quality
+    minArea -1;
+    minTwist 0.02;
+    minDeterminant 0.001;
+    minFaceWeight 0.05;
+    minVolRatio 0.01;
+    minTriangleTwist -1;
+    nSmoothScale 4;
+    errorReduction 0.75;
+    relaxed
+    {
+        maxNonOrtho 75;
+    }
+}
+
+mergeTolerance 1e-6;
+
+// ************************************************************************* //
