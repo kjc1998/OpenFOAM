@@ -36,9 +36,13 @@ boundaryField
         type            kqRWallFunction;
         value           $internalField;
     }
-    emptyPatch
+    emptyPatch_front
     {
-	type		empty;
+	type		symmetryPlane;
+    }
+    emptyPatch_back
+    {
+	type		symmetryPlane;
     }
 }
 

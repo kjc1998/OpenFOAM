@@ -23,7 +23,6 @@ geometry
     inlet.obj{ type triSurfaceMesh; name inlet;}
     outlet.obj{ type triSurfaceMesh; name outlet;}
     wall.obj{ type triSurfaceMesh; name wall;}
-    emptyPatch.obj{ type triSurfaceMesh; name emptyPatch; }
 }
 
 castellatedMeshControls
@@ -35,7 +34,7 @@ castellatedMeshControls
     nCellsBetweenLevels 1;
 
 
-    resolveFeatureAngle 45;
+    resolveFeatureAngle 30;
     locationInMesh (1 30 150);
     allowFreeStandingZoneFaces false;
 
@@ -43,8 +42,7 @@ castellatedMeshControls
     (
         { file "inlet.eMesh"; level 2;} 
         { file "outlet.eMesh"; level 2;}
-        { file "wall.eMesh"; level 2;}
-	{ file "emptyPatch.eMesh"; level 2;}
+        { file "wall.eMesh"; level 3;}
     );
 
     refinementSurfaces
@@ -73,14 +71,6 @@ castellatedMeshControls
 		type wall;
 	    }
 	}
-	emptyPatch
-	{
-	    level (2 3);
-	    patchInfo
-	    {
-		type empty;
-	    }
-	}
     }
 
     refinementRegions
@@ -91,14 +81,14 @@ castellatedMeshControls
 snapControls
 {
     nSmoothPatch 3;
-    tolerance 2.0;	// maximum relative distance for shifting
-    nSolveIter 5;	// edge snapping iteration
+    tolerance 4.0;	// maximum relative distance for shifting
+    nSolveIter 30;	// edge snapping iteration
     nRelaxIter 5;
     nFeatureSnapIter 5;
 
     implicitFeatureSnap false; // dependent on resolve angle
     explicitFeatureSnap true;  // default (using extracted feature edges)
-    multiRegionFeatureSnap false; // detect features between surfaces
+    multiRegionFeatureSnap true; // detect features between surfaces
 }
 
 addLayersControls
@@ -113,16 +103,16 @@ addLayersControls
     }
 
     expansionRatio 1.1;
-    finalLayerThickness 0.9;
+    firstLayerThickness 0.3;
     minThickness 0.1;
     // Advanced Settings
-    nGrow 0;
-    featureAngle 180;
-    nRelaxIter 3;
+    nGrow 3;
+    featureAngle 90;
+    nRelaxIter 10;
     nSmoothSurfaceNormals 1;
     nSmoothNormals 3;
     nSmoothThickness 10;
-    maxFaceThicknessRatio 1.0;
+    maxFaceThicknessRatio 0.9;
     maxThicknessToMedialRatio 0.5;
     minMedialAxisAngle 90;
     nBufferCellsNoExtrude 0;

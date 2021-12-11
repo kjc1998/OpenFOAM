@@ -26,6 +26,7 @@
   <li>cylinderPotential (PotentialFoam setups)</li>
   <li>plateHole (Tutorial folder)</li>
   <li>rotatingFanInRoom (Referece model for pumpModel)</li>
+  <li>wingMoition (Reference model for periodic motion and compressible flow)</li>
 </ul>
 
 ## Others:

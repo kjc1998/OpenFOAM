@@ -1,32 +1,27 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2006                                 |
+|  \\    /   O peration     | Version:  v2106                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-FoamFile
-{
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    object      surfaceFeatureExtractDict;
-}
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-inlet.obj
+ensightWrite
 {
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
+    type        ensightWrite;
+    libs        (utilityFunctionObjects);
+    log         true;
+
+    fields      (U p);
+
+    format      ascii;
+
+    overwrite   true;
+
+    writeControl onEnd;
+
+    consecutive false;
 }
-outlet.obj
-{
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
-}
-wall.obj
-{
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
-}
+
+
 // ************************************************************************* //

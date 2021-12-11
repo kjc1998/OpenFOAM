@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2006                                 |
+|  \\    /   O peration     | Version:  v2106                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -10,23 +10,49 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      surfaceFeatureExtractDict;
+    object      fvSchemes;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-inlet.obj
+ddtSchemes
 {
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
+    default         Euler;
 }
-outlet.obj
+
+gradSchemes
 {
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
+    default         Gauss linear;
 }
-wall.obj
+
+divSchemes
 {
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
+    default         none;
+
+    div(phi,U)      Gauss limitedLinearV 1;
+
+    turbulence      Gauss upwind;
+    div(phi,k)      $turbulence;
+    div(phi,epsilon) $turbulence;
+    div(phi,R)      $turbulence;
+    div(R)          Gauss linear;
+
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 }
+
+laplacianSchemes
+{
+    default         Gauss linear limited corrected 0.5;
+}
+
+interpolationSchemes
+{
+    default         linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+
+
 // ************************************************************************* //

@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2006                                 |
+|  \\    /   O peration     | Version:  v2106                                 |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -10,23 +10,55 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      surfaceFeatureExtractDict;
+    object      controlDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-inlet.obj
+application     pimpleFoam;
+
+startFrom       startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         5;
+
+deltaT          1e-5;
+
+writeControl    adjustable;
+
+writeInterval   1e-2;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  10;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  yes;
+
+maxCo           0.9;
+
+functions
 {
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
+    sixDoFRigidBodyState
+    {
+        type           sixDoFRigidBodyState;
+        libs           (sixDoFRigidBodyState);
+        angleFormat    degrees;
+    }
+
+    #include "ensightWrite"
 }
-outlet.obj
-{
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
-}
-wall.obj
-{
-    extractionMethod    extractFromSurface;
-    includedAngle       150;
-}
+
+
 // ************************************************************************* //
