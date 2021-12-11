@@ -6,7 +6,7 @@ restore0Dir
 parallelRun()
 {
 	decomposePar
-	mpirun -np 2 pimpleFoam -parallel | tee log/pimpleFoam.log
+	mpirun -np 4 pimpleFoam -parallel | tee log/pimpleFoam.log
 	reconstructPar
 }
 seriesRun()

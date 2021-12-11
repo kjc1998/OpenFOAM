@@ -15,11 +15,10 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType LES;
+simulationType RAS;
 
 RAS
 {
-    // Re ~ 12000
     RASModel        kOmegaSST;
     turbulence      on;
     printCoeffs     on;
@@ -27,7 +26,6 @@ RAS
 
 LES
 {
-    // Re ~ 60000
     LESModel	    kOmegaSSTIDDES;
     turbulence	    on;
     printCoeffs	    on;

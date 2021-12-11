@@ -24,8 +24,8 @@ boundaryField
     inlet
     {
         type            turbulentIntensityKineticEnergyInlet;
-        intensity		0.05;
-        value			$internalField;
+        intensity	0.05;
+        value		$internalField;
     }
     outlet
     {
@@ -35,6 +35,10 @@ boundaryField
     {
         type            kqRWallFunction;
         value           $internalField;
+    }
+    emptyPatch
+    {
+	type		empty;
     }
 }
 

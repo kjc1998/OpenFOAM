@@ -24,17 +24,21 @@ boundaryField
     inlet
     {
         type            calculated;
-		value			uniform 0;
+	value		uniform 0;
     }
     outlet
     {
         type            calculated;
-		value			uniform 0;
+	value		uniform 0;
     }
     wall
     {
         type            nutkWallFunction;
         value           $internalField;
+    }
+    emptyPatch
+    {
+	type		empty;
     }
 }
 

@@ -24,7 +24,7 @@ boundaryField
     inlet
     {
         type            fixedValue;
-        value           uniform (0 1.2 0); // Reynolds ~ 7200
+        value           uniform (0 0 -1.2); // Reynolds ~ 7200
     }
     outlet
     {
@@ -33,6 +33,10 @@ boundaryField
     wall
     {
         type            noSlip;
+    }
+    emptyPatch
+    {
+	type		empty;
     }
 }
 

@@ -29,4 +29,9 @@ wall.obj
     extractionMethod    extractFromSurface;
     includedAngle       150;
 }
+emptyPatch.obj
+{
+    extractionMethod    extractFromSurface;
+    includedAngle       150;
+}
 // ************************************************************************* //
