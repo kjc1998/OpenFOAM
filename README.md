@@ -1,6 +1,7 @@
 ## OpenFOAM Projects (Prefix "p\_"):
 
 <ul>
+  <li>bendPipe (S-Bend and U-Bend (CAD + kOmegaSST simulations settings at Re~7200))</li>
   <li>flatPlate (Flat plate simulations)</li>
   <li>karmanVortex (SnappyHexMesh from stl, realisable k-epsilon) [requires dynamic code]</li>
   <li>pipeFlowAnalysis</li>
@@ -14,7 +15,7 @@
   <li>pisoFoamPipe (Turbulent pipe flow with pisoFoam solver)</li>
   <li>snappyPipe (Laminar pipeflow with snappyHexMesh)</li>
   <li>pumpModel (<a href="https://github.com/kjc1998/OpenFOAM/tree/master/p_pumpModel">Details</a>)</li>
-  <li>bendPipe (S-Bend and U-Bend (CAD + kOmegaSST simulations settings at Re~7200))</li>
+  <li>teslaS (<a href="https://github.com/kjc1998/OpenFOAM/tree/master/p_teslaS">Details</a>)</li>
   <li>testFiles (Meshing testing folder)</li>
   <li>windTurbine (wind turbine simulation coupled with FSI WIP)</li>
 </ul>
