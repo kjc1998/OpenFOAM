@@ -77,6 +77,10 @@ _Key Settings_
             multiRegionFeatureSnap true; // detect features between surfaces
         }
 
+> Layers Addition
+
+        Deactivated due to Massive Amount of Cell Counts
+
 **Screenshots**
 
 <table>
