@@ -79,7 +79,7 @@ _Key Settings_
 
 > Layers Addition
 
-        Deactivated due to Massive Amount of Cell Counts
+        _Deactivated due to Massive Amount of Cell Counts_
 
 **Screenshots**
 
@@ -164,7 +164,7 @@ _Key Settings_
         }
         ...
 
-> Temperature Options
+> Temperature Limits (fvOptions)
 
         limitT
         {
