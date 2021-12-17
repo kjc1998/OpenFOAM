@@ -1,4 +1,4 @@
-# compressible RANS Simulation of Tesla car model S
+# Compressible RANS Simulation of Tesla Model S
 
 ## CAD
 
