@@ -209,7 +209,7 @@ _Key Settings_
       <td><img src="https://user-images.githubusercontent.com/57020975/146577565-a5ef4ca4-1c1c-487e-881c-e1274007f627.gif" height=300vw></td>
     </tr>
     <tr>
-      <td>Streamline (Velocity and Pressure)</td>
+      <td>Streamline Plot (Velocity and Pressure)</td>
       <td>Slice Plot (Velocity and Turbulence Intensity)</td>
     </tr>
   </table>
