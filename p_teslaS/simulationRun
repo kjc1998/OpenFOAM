@@ -1,0 +1,9 @@
+#!/bin/bash
+cd ${0%/*} || exit 1
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+restore0Dir
+
+decomposePar | tee log/decomposePar.log
+mpirun -np 4 rhoPimpleFoam -parallel | tee log/rhoPimpleFoam.log
+reconstructPar

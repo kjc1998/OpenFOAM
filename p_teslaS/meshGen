@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir log
+
+surfaceFeatureExtract | tee log/surfaceFeatureExtract.log
+blockMesh | tee log/blockMesh.log
+snappyHexMesh -overwrite | tee log/snappyHexMesh.log
+transformPoints -scale "(0.001 0.001 0.001)"
+
+touch tesla.foam
